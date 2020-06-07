@@ -9,12 +9,24 @@
 import Foundation
 import UIKit
 
-class AddWeatherCityViewController: UIViewController {
+class AddWeatherCityViewController: UIViewController, DataController {
     
     @IBOutlet weak var cityNameTextField: UITextField!
     
     @IBAction func saveCity() {
-        
+        if let city = cityNameTextField.text {
+            let weatherURL = getURL(city: city)
+            
+            let weatherResource = Resource<Any>(url: weatherURL) { data in
+                return data
+                
+            }
+            
+            WebService().load(resource: weatherResource) { result in
+                
+            }
+            
+        }
     }
     
     @IBAction func closeTheView() {
