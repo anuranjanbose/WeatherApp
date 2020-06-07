@@ -16,13 +16,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="aUM-aF-kvO">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WeatherCell" rowHeight="100" id="aUM-aF-kvO" customClass="WeatherCell" customModule="WeatherApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aUM-aF-kvO" id="IHQ-8Y-ycP">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQ0-P1-HnC">
+                                            <rect key="frame" x="20" y="38" width="48" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pcj-e0-are">
+                                            <rect key="frame" x="323" y="32" width="71" height="36"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="QQ0-P1-HnC" firstAttribute="centerY" secondItem="IHQ-8Y-ycP" secondAttribute="centerY" id="A82-xC-9J0"/>
+                                        <constraint firstItem="QQ0-P1-HnC" firstAttribute="leading" secondItem="IHQ-8Y-ycP" secondAttribute="leadingMargin" id="PNV-dG-la4"/>
+                                        <constraint firstItem="Pcj-e0-are" firstAttribute="centerY" secondItem="IHQ-8Y-ycP" secondAttribute="centerY" id="RyH-mt-FzI"/>
+                                        <constraint firstItem="Pcj-e0-are" firstAttribute="trailing" secondItem="IHQ-8Y-ycP" secondAttribute="trailingMargin" id="ey1-nW-qC7"/>
+                                        <constraint firstItem="Pcj-e0-are" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QQ0-P1-HnC" secondAttribute="trailing" constant="10" id="gyh-DW-9vq"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cityNameLabel" destination="QQ0-P1-HnC" id="H3P-JQ-WZT"/>
+                                    <outlet property="temperatureLabel" destination="Pcj-e0-are" id="JsC-aI-ffG"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
