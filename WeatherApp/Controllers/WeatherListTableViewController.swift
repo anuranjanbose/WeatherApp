@@ -16,6 +16,18 @@ class WeatherListTableViewController: UITableViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let nav = segue.destination as? UINavigationController else {
+            fatalError("UINavigationController not found")
+        }
+        
+        guard let addWeatherCityVC = nav.viewControllers.first as? AddWeatherCityViewController else {
+            fatalError("AddWeatherCityViewController not found")
+        }
+        
+        addWeatherCityVC.delegate = self
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -36,4 +48,12 @@ class WeatherListTableViewController: UITableViewController {
         cell.temperatureLabel.text = "70°"
         return cell
     }
+}
+
+// MARK: - Add Weather Delegate
+extension WeatherListTableViewController: AddWeatherDelegate {
+    func addWeatherDidSave(vm: WeatherViewModel) {
+        print(vm.name)
+    }
+
 }
