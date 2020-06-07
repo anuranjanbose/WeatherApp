@@ -17,8 +17,10 @@ class AddWeatherCityViewController: UIViewController, DataController {
         if let city = cityNameTextField.text {
             let weatherURL = getURL(city: city)
             
-            let weatherResource = Resource<Any>(url: weatherURL) { data in
-                return data
+            let weatherResource = Resource<WeatherViewModel>(url: weatherURL) { data in
+                
+                let weatherVM = try? JSONDecoder().decode(WeatherViewModel.self, from: data)
+                return weatherVM
                 
             }
             
