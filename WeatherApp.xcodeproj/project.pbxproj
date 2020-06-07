@@ -15,6 +15,7 @@
 		7D8A1780248CE0F500F6779A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D8A177E248CE0F500F6779A /* Main.storyboard */; };
 		7D8A1782248CE0F600F6779A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D8A1781248CE0F600F6779A /* Assets.xcassets */; };
 		7D8A1785248CE0F600F6779A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D8A1783248CE0F600F6779A /* LaunchScreen.storyboard */; };
+		7DE9D8C4248D0F15004BC9E7 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE9D8C3248D0F15004BC9E7 /* WebService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		7D8A1781248CE0F600F6779A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D8A1784248CE0F600F6779A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D8A1786248CE0F600F6779A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7DE9D8C3248D0F15004BC9E7 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		7D8A1777248CE0F500F6779A /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				7DE9D8C2248D0F02004BC9E7 /* Services */,
 				7D75688F248CFED0002CD5A9 /* Custom Cells */,
 				7D756889248CE4C6002CD5A9 /* Controllers */,
 				7D8A1778248CE0F500F6779A /* AppDelegate.swift */,
@@ -87,6 +90,14 @@
 				7D8A1786248CE0F600F6779A /* Info.plist */,
 			);
 			path = WeatherApp;
+			sourceTree = "<group>";
+		};
+		7DE9D8C2248D0F02004BC9E7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7DE9D8C3248D0F15004BC9E7 /* WebService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DE9D8C4248D0F15004BC9E7 /* WebService.swift in Sources */,
 				7D75688B248CE4E3002CD5A9 /* WeatherListTableViewController.swift in Sources */,
 				7D8A1779248CE0F500F6779A /* AppDelegate.swift in Sources */,
 				7D756891248CFEFF002CD5A9 /* WeatherCell.swift in Sources */,
