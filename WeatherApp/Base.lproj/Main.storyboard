@@ -10,7 +10,7 @@
         <!--Settings-->
         <scene sceneID="p6f-4k-AOw">
             <objects>
-                <tableViewController modalPresentationStyle="fullScreen" id="LWL-0B-rpl" sceneMemberID="viewController">
+                <tableViewController modalPresentationStyle="fullScreen" id="LWL-0B-rpl" customClass="SettingsTableViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="GNP-iP-NsH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,7 +30,9 @@
                             <outlet property="delegate" destination="LWL-0B-rpl" id="6lx-7n-AGW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="1QK-KF-Cwr"/>
+                    <navigationItem key="navigationItem" title="Settings" id="1QK-KF-Cwr">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="OPB-YG-wiq"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G1y-d6-IKY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -87,12 +89,12 @@
                     <navigationItem key="navigationItem" title="WeatherApp" id="051-Hv-Awo">
                         <barButtonItem key="leftBarButtonItem" title="Settings" image="740-gear-toolbar.png" id="OgE-P2-dx0">
                             <connections>
-                                <segue destination="x9O-eh-Mk3" kind="presentation" id="Dap-TN-rt5"/>
+                                <segue destination="x9O-eh-Mk3" kind="presentation" identifier="SettingsTableViewController" id="Dap-TN-rt5"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ADa-H7-fuG">
                             <connections>
-                                <segue destination="TTP-w2-Ck1" kind="presentation" id="41K-vB-yOJ"/>
+                                <segue destination="TTP-w2-Ck1" kind="presentation" identifier="AddWeatherCityViewController" id="41K-vB-yOJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
