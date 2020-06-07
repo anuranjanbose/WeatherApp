@@ -9,10 +9,19 @@
 import Foundation
 import UIKit
 
+protocol AddWeatherDelegate {
+    func addWeatherDidSave(vm: WeatherViewModel)
+}
+
 class AddWeatherCityViewController: UIViewController, DataController {
     
+    // MARK: - IBOutlets
     @IBOutlet weak var cityNameTextField: UITextField!
     
+    // MARK: - Public Properties
+    var delegate: AddWeatherDelegate?
+    
+    // MARK: - IBActions
     @IBAction func saveCity() {
         if let city = cityNameTextField.text {
             let weatherURL = getURL(city: city)
@@ -24,8 +33,14 @@ class AddWeatherCityViewController: UIViewController, DataController {
                 
             }
             
-            WebService().load(resource: weatherResource) { result in
-                
+            WebService().load(resource: weatherResource) {[weak self] result in
+                if let weatherVM = result {
+                    if let delegate = self?.delegate {
+                        delegate.addWeatherDidSave(vm: weatherVM)
+                        self?.dismiss(animated: true, completion: nil)
+                        
+                    }
+                }
             }
             
         }
