@@ -7,6 +7,35 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Settings-->
+        <scene sceneID="p6f-4k-AOw">
+            <objects>
+                <tableViewController modalPresentationStyle="fullScreen" id="LWL-0B-rpl" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="GNP-iP-NsH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Icu-Z9-OPx">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Icu-Z9-OPx" id="Q8H-iw-07p">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="LWL-0B-rpl" id="2uu-Nx-6cu"/>
+                            <outlet property="delegate" destination="LWL-0B-rpl" id="6lx-7n-AGW"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="1QK-KF-Cwr"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G1y-d6-IKY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2233.3333333333335" y="-592.63392857142856"/>
+        </scene>
         <!--WeatherApp-->
         <scene sceneID="WGO-TO-xE8">
             <objects>
@@ -56,7 +85,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="WeatherApp" id="051-Hv-Awo">
-                        <barButtonItem key="leftBarButtonItem" title="Settings" id="OgE-P2-dx0"/>
+                        <barButtonItem key="leftBarButtonItem" title="Settings" image="740-gear-toolbar.png" id="OgE-P2-dx0">
+                            <connections>
+                                <segue destination="x9O-eh-Mk3" kind="presentation" id="Dap-TN-rt5"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ADa-H7-fuG">
                             <connections>
                                 <segue destination="TTP-w2-Ck1" kind="presentation" id="41K-vB-yOJ"/>
@@ -150,5 +183,26 @@
             </objects>
             <point key="canvasLocation" x="1900.0000000000002" y="95.380434782608702"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7eE-BO-gmx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="x9O-eh-Mk3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BNI-I1-mwk">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="LWL-0B-rpl" kind="relationship" relationship="rootViewController" id="N3N-8p-BYM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3G3-5K-FMd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1323.1884057971015" y="-592.63392857142856"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="740-gear-toolbar.png" width="22" height="22"/>
+    </resources>
 </document>
