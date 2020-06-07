@@ -94,7 +94,8 @@ extension WeatherListTableViewController: AddWeatherDelegate {
 // MARK: - Settings Delegate
 extension WeatherListTableViewController: SettingsDelegate {
     func settingsDone(vm: SettingsViewModel) {
-        print("Settings delegate")
+        self.weatherListViewModel.updateUnit(to: vm.selectedUnit)
+        self.tableView.reloadData()
     }
     
 }

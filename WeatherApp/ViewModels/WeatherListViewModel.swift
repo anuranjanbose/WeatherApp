@@ -23,11 +23,30 @@ struct WeatherListViewModel {
     func modelAt(_ index: Int) -> WeatherViewModel {
         return self.weatherViewModels[index]
     }
+    
+    mutating func updateUnit(to unit: Unit) {
+        weatherViewModels = weatherViewModels.map { vm in
+            var weatherModel = vm
+            weatherModel.currentTemperature.temperature = convert(temperature: weatherModel.currentTemperature.temperature, to: unit)
+            return weatherModel
+        }
+    }
+    
+    private func convert(temperature: Double, to unit: Unit) -> Double {
+        switch unit {
+        /// To Celsius
+        case .celsius:
+            return ((temperature - 32) * 5/9)
+        /// To Fahrenheit
+        case .fahrenheit:
+            return ((temperature * 9/5) + 32)
+        }
+    }
 }
 
 struct WeatherViewModel: Decodable {
     
-    let currentTemperature: TemperatureViewModel
+    var currentTemperature: TemperatureViewModel
     let name: String
 
     private enum CodingKeys: String, CodingKey {
@@ -37,7 +56,7 @@ struct WeatherViewModel: Decodable {
 }
 
 struct TemperatureViewModel: Decodable {
-    let temperature: Double
+    var temperature: Double
     let temperatureMin: Double
     let temperatureMax: Double
     
