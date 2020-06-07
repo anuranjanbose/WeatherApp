@@ -1,0 +1,26 @@
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+- Pods
+- WeatherAppTests
+- WeatherAppUITests
+disabled_rules: # rule identifiers to exclude from running
+- large_tuple
+- trailing_whitespace
+- identifier_name
+- line_length
+- type_body_length
+- class_delegate_protocol
+- weak_delegate
+- unused_optional_binding
+# configurable rules can be customized from this configuration file
+# binary rules can set their severity level
+force_cast: warning # implicitly
+force_try:
+  severity: warning # explicitly
+# rules that have both warning and error levels, can set just the warning level
+# implicitly
+# they can set both implicitly with an array
+# or they can set both explicitly
+file_length:
+  warning: 600
+  error: 1200
