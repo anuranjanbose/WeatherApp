@@ -22,7 +22,7 @@ extension DataController {
         
         let userDefaults = UserDefaults.standard
         let unit = userDefaults.value(forKey: "unit")
-        let defaultUnit = "imperial"
+        let defaultUnit = Unit.fahrenheit.rawValue
         guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=\(apiKey)&units=\(unit ?? defaultUnit)") else {
             fatalError("Broken URL")
         }
