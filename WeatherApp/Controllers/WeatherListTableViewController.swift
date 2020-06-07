@@ -1,20 +1,18 @@
 //
-//  ViewController.swift
+//  WeatherListTableViewController.swift
 //  WeatherApp
 //
 //  Created by Anuranjan Bose on 07/06/20.
 //  Copyright © 2020 Anuranjan Bose. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-class ViewController: UIViewController {
-
+class WeatherListTableViewController: UITableViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
-
-
 }
-
