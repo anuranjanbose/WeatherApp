@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         self.setUpNavigationBar()
+        self.setUpDefaultSettings()
         return true
     }
 
@@ -38,6 +39,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
 
         UIBarButtonItem.appearance().tintColor = UIColor.white
+    }
+    
+    private func setUpDefaultSettings() {
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(Unit.fahrenheit.rawValue, forKey: "unit")
     }
     
 }

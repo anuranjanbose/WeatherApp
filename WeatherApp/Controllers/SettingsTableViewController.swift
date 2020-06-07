@@ -38,6 +38,10 @@ extension SettingsTableViewController {
         let settingsItem = self.settingsViewModel.units[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath)
         cell.textLabel?.text = settingsItem.displayName
+        
+        if settingsItem == self.settingsViewModel.selectedUnit {
+            cell.accessoryType = .checkmark
+        }
         return cell
     }
     
