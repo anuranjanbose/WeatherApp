@@ -17,6 +17,10 @@ class SettingsTableViewController: UITableViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
+    
+    @IBAction func done() {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 extension SettingsTableViewController {
@@ -35,5 +39,17 @@ extension SettingsTableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath)
         cell.textLabel?.text = settingsItem.displayName
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            cell.accessoryType = .checkmark
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+             cell.accessoryType = .none
+         }
     }
 }
