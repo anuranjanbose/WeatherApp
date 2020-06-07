@@ -17,11 +17,11 @@ final class WebService {
     
     func load<T>(resource: Resource<T>, completion: @escaping (T?) -> Void) {
         
-        debugPrint("===URL", resource.url)
+        //debugPrint("===URL", resource.url)
         
         URLSession.shared.dataTask(with: resource.url) { data, _, _ in
             
-            debugPrint("===DATA", data)
+            //debugPrint("===DATA", data)
             if let data = data {
                 DispatchQueue.main.async {
                     completion(resource.parse(data))

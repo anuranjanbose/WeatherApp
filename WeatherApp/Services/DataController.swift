@@ -19,7 +19,7 @@ extension DataController {
     }
     
     func getURL(city: String) -> URL {
-        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=\(apiKey)") else {
+        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=\(apiKey)&units=imperial") else {
             fatalError("Broken URL")
         }
         return url
