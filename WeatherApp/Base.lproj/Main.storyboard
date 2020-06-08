@@ -82,6 +82,7 @@
                                 <connections>
                                     <outlet property="cityNameLabel" destination="QQ0-P1-HnC" id="H3P-JQ-WZT"/>
                                     <outlet property="temperatureLabel" destination="Pcj-e0-are" id="JsC-aI-ffG"/>
+                                    <segue destination="ofS-Nr-Zug" kind="show" identifier="WeatherDetailsViewController" id="siH-aD-xt5"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -211,6 +212,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zi1-BW-2p1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1900.0000000000002" y="95.380434782608702"/>
+        </scene>
+        <!--Weather Details View Controller-->
+        <scene sceneID="GZ4-dw-FBN">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="ofS-Nr-Zug" customClass="WeatherDetailsViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eaN-f0-4j4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="EJq-cE-QVv">
+                                <rect key="frame" x="186" y="128" width="42" height="142"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHS-7y-3le">
+                                        <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXR-N6-h2o">
+                                        <rect key="frame" x="0.0" y="40.5" width="42" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRV-5H-p2y">
+                                        <rect key="frame" x="0.0" y="81" width="42" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKd-Fm-eHc">
+                                        <rect key="frame" x="0.0" y="121.5" width="42" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="EJq-cE-QVv" firstAttribute="top" secondItem="i2V-1t-5Ko" secondAttribute="top" constant="40" id="oVx-iZ-iwW"/>
+                            <constraint firstItem="EJq-cE-QVv" firstAttribute="centerX" secondItem="eaN-f0-4j4" secondAttribute="centerX" id="qR5-Qj-Ga5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="i2V-1t-5Ko"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Pcb-zy-Qvr"/>
+                    <connections>
+                        <outlet property="cityNameLabel" destination="RHS-7y-3le" id="3A3-rp-4CK"/>
+                        <outlet property="currentTemperatureLabel" destination="ZXR-N6-h2o" id="dbz-Is-Ahv"/>
+                        <outlet property="maxTempLabel" destination="NRV-5H-p2y" id="wkT-sk-jog"/>
+                        <outlet property="minTempLabel" destination="hKd-Fm-eHc" id="WET-Lg-l1g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GGy-tQ-HbM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1618.840579710145" y="820.98214285714278"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7eE-BO-gmx">
