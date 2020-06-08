@@ -17,6 +17,8 @@ class AddWeatherCityViewController: UIViewController, DataController {
     
     // MARK: - IBOutlets
     @IBOutlet weak var cityNameTextField: UITextField!
+    @IBOutlet weak var stateTextField: UITextField!
+    @IBOutlet weak var zipCodeTextField: UITextField!
     
     // MARK: - Public Properties
     var delegate: AddWeatherDelegate?

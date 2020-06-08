@@ -115,14 +115,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WoW-6p-rAn">
-                                <rect key="frame" x="20" y="128" width="374" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="Ihm-eS-cxr">
+                                <rect key="frame" x="20" y="128" width="374" height="138"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WoW-6p-rAn">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter State" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cHo-Kq-pgx">
+                                        <rect key="frame" x="0.0" y="52" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Zip Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jWs-L2-sPS">
+                                        <rect key="frame" x="0.0" y="104" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mdd-5k-otf">
-                                <rect key="frame" x="190" y="212" width="34" height="30"/>
-                                <state key="normal" title="Save"/>
+                                <rect key="frame" x="172" y="316" width="70" height="30"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="Wxo-4h-Aez"/>
+                                </constraints>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="saveCity" destination="waK-0b-hFo" eventType="touchUpInside" id="X3r-xz-Suh"/>
                                 </connections>
@@ -130,11 +151,11 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Mdd-5k-otf" firstAttribute="centerX" secondItem="Rlg-IC-Jdf" secondAttribute="centerX" id="8Bg-jr-YVO"/>
-                            <constraint firstItem="WoW-6p-rAn" firstAttribute="top" secondItem="g10-4G-uwX" secondAttribute="top" constant="40" id="ZYW-OW-F4e"/>
-                            <constraint firstItem="Mdd-5k-otf" firstAttribute="top" secondItem="WoW-6p-rAn" secondAttribute="bottom" constant="50" id="n5x-hz-qll"/>
-                            <constraint firstItem="g10-4G-uwX" firstAttribute="trailing" secondItem="WoW-6p-rAn" secondAttribute="trailing" constant="20" id="sy1-ht-aUX"/>
-                            <constraint firstItem="WoW-6p-rAn" firstAttribute="leading" secondItem="g10-4G-uwX" secondAttribute="leading" constant="20" id="wfu-7f-uPn"/>
+                            <constraint firstItem="Mdd-5k-otf" firstAttribute="top" secondItem="Ihm-eS-cxr" secondAttribute="bottom" constant="50" id="2ck-N9-mQA"/>
+                            <constraint firstItem="g10-4G-uwX" firstAttribute="trailing" secondItem="Ihm-eS-cxr" secondAttribute="trailing" constant="20" id="PIK-1d-pCO"/>
+                            <constraint firstItem="Ihm-eS-cxr" firstAttribute="leading" secondItem="g10-4G-uwX" secondAttribute="leading" constant="20" id="cbC-6M-CWE"/>
+                            <constraint firstItem="Mdd-5k-otf" firstAttribute="centerX" secondItem="Rlg-IC-Jdf" secondAttribute="centerX" id="mAe-Rc-Khg"/>
+                            <constraint firstItem="Ihm-eS-cxr" firstAttribute="top" secondItem="g10-4G-uwX" secondAttribute="top" constant="40" id="wgt-9D-Upd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="g10-4G-uwX"/>
                     </view>
@@ -147,6 +168,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cityNameTextField" destination="WoW-6p-rAn" id="gQJ-Xt-vyf"/>
+                        <outlet property="stateTextField" destination="cHo-Kq-pgx" id="f87-tN-r8s"/>
+                        <outlet property="zipCodeTextField" destination="jWs-L2-sPS" id="W7f-kJ-O3t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6nh-aK-Waw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
