@@ -30,8 +30,11 @@ class WeatherDetailsViewController: UIViewController {
             weatherVM.currentTemperature.temperature.bind { self.currentTemperatureLabel.text = "\($0.formatAsDegree)" }
         }
         /// Change of value will reflect on view after two seconds
+        /// Used for testing purpose
+        /*
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             self.weatherViewModel?.name.value = "Mumbai"
         }
+        */
     }
 }

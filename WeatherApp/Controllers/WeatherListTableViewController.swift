@@ -13,11 +13,19 @@ class WeatherListTableViewController: UITableViewController {
     
     // MARK: Private/Public Properties
     private var weatherListViewModel = WeatherListViewModel()
+    private var dataSource: WeatherDataSource?
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        setUpData()
+    }
+    
+    private func setUpData() {
+        /// Set Up DataSource
+        self.dataSource = WeatherDataSource(weatherListViewModel)
+        self.tableView.dataSource = self.dataSource
     }
     
     // MARK: - Prepare for segue
@@ -66,30 +74,9 @@ class WeatherListTableViewController: UITableViewController {
         weatherDetailsVC.weatherViewModel = weatherVM
     }
     
-}
-
-// MARK: - UITableView Datasource and Delegate
-extension WeatherListTableViewController {
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.weatherListViewModel.numberOfRows(section)
-    }
-    
+    // MARK: - Row Height
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100.0
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath) as? WeatherCell else {
-            fatalError("WeatherCell not found")
-        }
-        
-        let weatherVM = self.weatherListViewModel.modelAt(indexPath.row)
-        cell.configureCell(with: weatherVM)
-        return cell
     }
 }
 
