@@ -13,7 +13,8 @@ class WeatherListTableViewController: UITableViewController {
     
     // MARK: Private/Public Properties
     private var weatherListViewModel = WeatherListViewModel()
-    private var dataSource: WeatherDataSource?
+    //private var dataSource: WeatherDataSource?
+    private var dataSource: TableViewDataSource<WeatherCell, WeatherViewModel>!
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -24,7 +25,11 @@ class WeatherListTableViewController: UITableViewController {
     
     private func setUpData() {
         /// Set Up DataSource
-        self.dataSource = WeatherDataSource(weatherListViewModel)
+        //self.dataSource = WeatherDataSource(weatherListViewModel)
+        self.dataSource = TableViewDataSource(cellIdentifier: "WeatherCell", items: self.weatherListViewModel.weatherViewModels) { cell, vm in
+            cell.cityNameLabel.text = vm.name.value
+            cell.temperatureLabel.text = vm.currentTemperature.temperature.value.formatAsDegree
+        }
         self.tableView.dataSource = self.dataSource
     }
     
@@ -84,6 +89,7 @@ class WeatherListTableViewController: UITableViewController {
 extension WeatherListTableViewController: AddWeatherDelegate {
     func addWeatherDidSave(vm: WeatherViewModel) {
         self.weatherListViewModel.addWeatherViewModel(vm)
+        self.dataSource.updateItems(self.weatherListViewModel.weatherViewModels)
         self.tableView.reloadData()
     }
 
